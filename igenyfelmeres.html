@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Igényfelmérő – HM Media</title>
+<link rel="icon" type="image/png" href="assets/ChatGPT Image 2025. okt. 24. 17_19_17.png">
+<style>
+:root{
+  --bg:#0b0c10;--panel:#121317;--text:#e8e8ea;--muted:#a6a8ad;
+  --brand:#7c5cff;--brand2:#5dd6ff;--stroke:#23242d;--card:#0f1015;
+}
+@media(prefers-color-scheme:light){
+  :root{--bg:#f6f7fb;--panel:#fff;--text:#0d0e12;--muted:#586074;
+  --brand:#5a48ff;--brand2:#00b6ff;--stroke:#e7e7ef;--card:#fff;}
+}
+body{
+  background:var(--bg);color:var(--text);
+  font:16px/1.6 "Poppins",system-ui,-apple-system,"Segoe UI",Inter,Roboto,sans-serif;
+  margin:0;padding:40px 20px;overflow-x:hidden;
+}
+.wrap{max-width:820px;margin:0 auto;}
+h1{text-align:center;font-size:2.3rem;background:linear-gradient(90deg,var(--brand),var(--brand2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:10px;}
+p.lead{text-align:center;color:var(--muted);margin-bottom:40px;}
+form{display:flex;flex-direction:column;gap:28px;}
+fieldset{
+  border:1px solid var(--stroke);border-radius:16px;background:var(--panel);
+  padding:22px 18px 20px;box-shadow:0 4px 18px rgba(0,0,0,0.25);margin:0;
+}
+legend{
+  padding:0 10px;font-weight:700;font-size:1.05rem;color:var(--brand2);margin-left:8px;
+}
+.group{display:flex;flex-direction:column;gap:4px;margin-bottom:12px;}
+label{display:block;font-weight:600;margin-bottom:4px;color:var(--text);}
+input,textarea,select{
+  width:100%;padding:10px 12px;border-radius:8px;border:1px solid var(--stroke);
+  background:var(--card);color:var(--text);font-family:inherit;font-size:1rem;
+  line-height:1.4;transition:all .25s ease;box-sizing:border-box;
+}
+input:focus,textarea:focus,select:focus{
+  border-color:var(--brand2);outline:none;box-shadow:0 0 0 3px rgba(93,214,255,0.25);
+}
+.checkbox-group,.radio-group{
+  display:flex;flex-direction:column;gap:10px;margin-top:8px;
+}
+.checkbox-group label,.radio-group label{
+  position:relative;display:flex;align-items:center;gap:12px;
+  background:rgba(255,255,255,0.02);border:1px solid var(--stroke);
+  padding:10px 14px;border-radius:12px;cursor:pointer;
+  line-height:1.4;transition:all .25s ease;
+}
+.checkbox-group label:hover,.radio-group label:hover{
+  border-color:var(--brand2);background:rgba(93,214,255,0.05);
+  transform:translateY(-1px);
+}
+
+/* --- designosított checkbox & radio --- */
+input[type="checkbox"],input[type="radio"]{
+  appearance:none;-webkit-appearance:none;-moz-appearance:none;
+  width:20px;height:20px;border:2px solid var(--brand2);
+  border-radius:6px;background:var(--panel);
+  display:inline-block;position:relative;transition:all .25s ease;
+  box-shadow:inset 0 0 0 2px transparent;
+}
+input[type="checkbox"]:hover,input[type="radio"]:hover{
+  box-shadow:0 0 6px rgba(93,214,255,0.4);
+}
+input[type="checkbox"]:checked{
+  background:linear-gradient(135deg,var(--brand),var(--brand2));
+  border:none;
+}
+input[type="checkbox"]:checked::after{
+  content:"✓";
+  position:absolute;top:48%;left:50%;
+  transform:translate(-50%,-50%) scale(1);
+  color:#fff;font-size:0.9rem;font-weight:700;
+}
+input[type="radio"]{
+  border-radius:50%;
+}
+input[type="radio"]:checked{
+  background:radial-gradient(circle at center,var(--brand2) 45%,var(--brand) 100%);
+  border:none;
+}
+input[type="radio"]:checked::after{
+  content:"";
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%) scale(1);
+  width:10px;height:10px;border-radius:50%;
+  background:#fff;
+}
+
+.submit-btn{
+  border:none;padding:16px 24px;border-radius:14px;font-size:1.1rem;font-weight:600;
+  color:#fff;background:linear-gradient(90deg,var(--brand),var(--brand2));
+  cursor:pointer;box-shadow:0 8px 24px rgba(124,92,255,0.25);
+  transition:all .3s ease;background-size:200% 100%;background-position:0 0;
+}
+.submit-btn:hover{background-position:100% 0;transform:translateY(-2px);}
+.back-link{display:block;text-align:center;margin-top:24px;color:var(--brand2);text-decoration:none;}
+.back-link:hover{text-decoration:underline;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Igényfelmérő</h1>
+  <p class="lead">Segít pontos képet kapni az elképzelt weboldaladról és testreszabott ajánlatot készíteni.</p>
+
+  <form action="https://formspree.io/f/mldodgnl" method="POST" id="surveyForm">
+
+    <fieldset>
+      <legend>1. Alapadatok</legend>
+      <div class="group">
+        <label for="name">Név *</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="group">
+        <label for="email">E-mail *</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="group">
+        <label for="phone">Telefonszám</label>
+        <input type="tel" id="phone" name="phone">
+      </div>
+      <div class="group">
+        <label for="project">Cég / Projekt neve</label>
+        <input type="text" id="project" name="project">
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>2. Weboldal célja</legend>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="goal" value="Bemutatkozó oldal">Bemutatkozó oldal</label>
+        <label><input type="checkbox" name="goal" value="Szolgáltatások bemutatása">Szolgáltatások bemutatása</label>
+        <label><input type="checkbox" name="goal" value="Kapcsolatfelvétel / lead gyűjtés">Kapcsolatfelvétel / lead gyűjtés</label>
+        <label><input type="checkbox" name="goal" value="Online értékesítés">Online értékesítés (webshop)</label>
+      </div>
+      <label for="other-goal">Egyéb cél / megjegyzés</label>
+      <textarea id="other-goal" name="other-goal" rows="3"></textarea>
+    </fieldset>
+
+    <fieldset>
+      <legend>3. Funkciók és tartalom</legend>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="features" value="Képgaléria">Képgaléria</label>
+        <label><input type="checkbox" name="features" value="Kapcsolati űrlap">Kapcsolati űrlap</label>
+        <label><input type="checkbox" name="features" value="Google Térkép">Google Térkép beágyazás</label>
+        <label><input type="checkbox" name="features" value="Blog / hírek">Blog / hírek</label>
+        <label><input type="checkbox" name="features" value="Többnyelvűség">Többnyelvűség</label>
+        <label><input type="checkbox" name="features" value="SEO alapbeállítások">SEO alapbeállítások</label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>4. Design és stílus</legend>
+      <div class="radio-group">
+        <label><input type="radio" name="style" value="Modern, letisztult">Modern, letisztult</label>
+        <label><input type="radio" name="style" value="Elegáns, klasszikus">Elegáns, klasszikus</label>
+        <label><input type="radio" name="style" value="Kreatív, látványos">Kreatív, látványos</label>
+        <label><input type="radio" name="style" value="Minimalista, üzleti">Minimalista, üzleti</label>
+      </div>
+      <label for="color">Kedvelt színek / stílus</label>
+      <textarea id="color" name="color" rows="2"></textarea>
+    </fieldset>
+
+    <fieldset>
+      <legend>5. Fenntartás és támogatás</legend>
+      <div class="radio-group">
+        <label><input type="radio" name="maintenance" value="Igen">Érdekel a havi karbantartás</label>
+        <label><input type="radio" name="maintenance" value="Nem">Nem, csak egyszeri fejlesztés</label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>6. Költségkeret</legend>
+      <div class="radio-group">
+        <label><input type="radio" name="budget" value="150-300 ezer Ft">150–300 ezer Ft</label>
+        <label><input type="radio" name="budget" value="300-600 ezer Ft">300–600 ezer Ft</label>
+        <label><input type="radio" name="budget" value="600+ ezer Ft">600 ezer Ft felett</label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>7. Egyéb megjegyzések</legend>
+      <textarea name="message" rows="4" placeholder="Egyéb kérések, megjegyzések..."></textarea>
+    </fieldset>
+
+    <button type="submit" class="submit-btn">Küldés</button>
+  </form>
+
+  <a href="index.html" class="back-link">← Vissza a főoldalra</a>
+</div>
+
+<script>
+const form=document.getElementById('surveyForm');
+form.addEventListener('submit',async e=>{
+  e.preventDefault();
+  const data=new FormData(form);
+  try{
+    const response=await fetch(form.action,{
+      method:form.method,body:data,headers:{'Accept':'application/json'}
+    });
+    if(response.ok){window.location.href="thanks.html";}
+    else alert("Hiba történt a küldés közben. Kérlek próbáld újra!");
+  }catch(error){alert("Hálózati hiba – ellenőrizd az internetkapcsolatot!");}
+});
+</script>
+</body>
+</html>
