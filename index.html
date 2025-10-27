@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HM – Media • Webfejlesztés & Marketing</title>
+  <meta name="description" content="HM – Media portfólió: modern, reszponzív weboldalak ügyvédi, építőipari és kreatív cégek számára." />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="theme-color" content="#0b0c10" />
+  <link rel="icon" type="image/png" href="assets/ChatGPT Image 2025. okt. 24. 17_19_17.png" />
+  <meta property="og:title" content="HM – Media • Webfejlesztés & Marketing">
+  <meta property="og:description" content="Modern, reszponzív weboldalak ügyvédi, építőipari és kreatív cégek számára.">
+  <meta property="og:image" content="https://matehl26.github.io/Portfolio/assets/social-preview.png">
+  <meta property="og:type" content="website">
+  <!-- SEO alapok -->
+  <meta name="description" content="Modern, letisztult és gyors weboldalak — HM Media. Webfejlesztés, design és karbantartás ügyvédi, építőipari és kreatív vállalkozásoknak.">
+  <meta name="keywords" content="webfejlesztés, weboldal készítés, marketing, arculattervezés, portfólió, HM Media, Hlíva Máté, reszponzív weboldal, SEO, frontend fejlesztő">
+  <meta name="author" content="Hlíva Máté">
+
+  <!-- Open Graph (Facebook / LinkedIn) -->
+  <meta property="og:title" content="HM – Media • Webfejlesztés & Marketing">
+  <meta property="og:description" content="Modern, reszponzív weboldalak ügyvédi, építőipari és kreatív cégek számára.">
+  <meta property="og:image" content="https://matehl26.github.io/Portfolio/assets/social-preview.png">
+  <meta property="og:url" content="https://matehl26.github.io/Portfolio/">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="HM – Media • Webfejlesztés & Marketing">
+  <meta name="twitter:description" content="Modern weboldalak, amelyek eladnak.">
+  <meta name="twitter:image" content="https://matehl26.github.io/Portfolio/assets/social-preview.png">
+
+  <style>
+    :root {
+      --bg:#0b0c10; --panel:#121317; --text:#e8e8ea; --muted:#a6a8ad;
+      --brand:#7c5cff; --brand2:#5dd6ff; --stroke:#23242d; --card:#0f1015;
+    }
+    @media (prefers-color-scheme:light) {
+      :root {
+        --bg:#f6f7fb; --panel:#ffffff; --text:#0d0e12; --muted:#586074;
+        --brand:#5a48ff; --brand2:#00b6ff; --stroke:#e7e7ef; --card:#ffffff;
+      }
+    }
+
+    html, body { background:#0b0c10; color-scheme:dark light; overscroll-behavior:none; scroll-behavior:smooth; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body {
+      background:var(--bg); color:var(--text);
+      font:16px/1.65 "Poppins", system-ui, -apple-system, "Segoe UI", Inter, Roboto, Arial, sans-serif;
+      overflow-x:hidden;
+      position: relative;
+      z-index: 1;
+
+    }
+    a { color:inherit; text-decoration:none; }
+    a:focus-visible, button:focus-visible { outline:2px solid var(--brand2); outline-offset:2px; border-radius:8px; }
+
+    /* HEADER */
+    .main-header {
+      position:fixed; top:0; left:0; right:0; z-index:1000;
+      background:rgba(11,12,16,0.85); backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--stroke);
+      display:flex; justify-content:center; align-items:center;
+      padding:8px 20px; height:56px;
+    }
+    .header-inner { max-width:1140px; width:100%; display:flex; justify-content:space-between; align-items:center; }
+    .logo {
+      font-weight:800; font-size:1.1rem;
+      background:linear-gradient(90deg,var(--brand),var(--brand2));
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+      letter-spacing:1px;
+    }
+    .nav { display:flex; gap:16px; font-size:0.9rem; }
+    .nav a { color:var(--muted); transition:color 0.25s ease; }
+    .nav a:hover { color:var(--brand2); }
+
+    .wrap { max-width:1140px; margin:0 auto; padding:90px 24px 40px; }
+    section { margin-top:80px; scroll-margin-top:90px; }
+    h2 { font-size:1.8rem; margin-bottom:10px; }
+    .lead { color:var(--muted); margin-bottom:16px; }
+
+    /* HERO */
+    .hero-typo {
+      display:flex; align-items:center; justify-content:center; text-align:center; height:80vh;
+      border-radius:20px; border:1px solid var(--stroke);
+      background:
+        radial-gradient(900px 600px at 50% -20%,rgba(124,92,255,0.1),transparent 60%),
+        linear-gradient(180deg,rgba(255,255,255,0.02),transparent 60%);
+      box-shadow:0 10px 40px rgba(0,0,0,0.3);
+    }
+    .hero-title { font-size:clamp(42px,8vw,90px); font-weight:800; letter-spacing:1px; display:flex; gap:10px; animation:floatLogo 6s ease-in-out infinite; }
+    .hm { background:linear-gradient(90deg,var(--brand),var(--brand2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .media { background:linear-gradient(90deg,var(--brand2),#30ffa6); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .hero-anim { font-size:clamp(18px,3vw,28px); color:var(--muted); margin-top:12px; }
+    #animated-word { background:linear-gradient(90deg,var(--brand),var(--brand2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; font-weight:600; }
+    @keyframes floatLogo { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
+    .fade-in { animation:fadeWord .6s ease forwards; }
+    @keyframes fadeWord { 0%{opacity:0;transform:translateY(8px);}100%{opacity:1;transform:translateY(0);} }
+
+    /* ABOUT */
+    .about-section {
+      padding:60px 20px; border-radius:20px; border:1px solid var(--stroke);
+      background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent 60%);
+      box-shadow:0 10px 40px rgba(0,0,0,0.3);
+    }
+    .about-text h2 {
+      font-size:2rem; margin-bottom:12px;
+      background:linear-gradient(90deg,var(--brand),var(--brand2));
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+    }
+    .about-text p { margin-bottom:16px; color:var(--muted); font-size:1rem; line-height:1.7; }
+    .about-highlight { margin-top:20px; padding:18px 22px; border-left:3px solid var(--brand); background:rgba(124,92,255,0.05); border-radius:10px; }
+    .about-btn {
+      margin-top:20px; display:inline-block; padding:12px 22px; border-radius:14px;
+      background:linear-gradient(90deg,var(--brand),var(--brand2)); color:#fff; font-weight:600; text-decoration:none;
+      transition:all 0.3s ease; box-shadow:0 8px 24px rgba(124,92,255,0.25);
+    }
+    .about-btn:hover { transform:translateY(-2px); box-shadow:0 12px 40px rgba(93,214,255,0.3); }
+
+    /* PROJECTS */
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
+    .card { border:1px solid var(--stroke); border-radius:14px; background:var(--card); overflow:hidden; transition:transform .25s ease, box-shadow .25s ease; }
+    .card:hover { transform:translateY(-4px); box-shadow:0 18px 40px rgba(0,0,0,.25); }
+    .thumb { aspect-ratio: 16/9; overflow:hidden; border-bottom:1px solid var(--stroke); background:var(--card); }
+    .thumb img { width:100%; height:100%; object-fit:cover; display:block; }
+    .content { padding:16px; }
+    .title { font-weight:800; margin-bottom:6px; }
+    .tags { display:flex; flex-wrap:wrap; gap:8px; margin:10px 0 14px; }
+    .tag { font-size:12px; border:1px solid var(--stroke); padding:4px 8px; border-radius:999px; color:var(--muted); }
+
+    /* Project links / buttons */
+    .links { display:flex; gap:10px; margin-top:auto; padding:0 16px 16px; flex-wrap:wrap; justify-content:center; }
+    .link { flex:1; text-align:center; padding:10px 0; border-radius:12px; font-weight:600; font-size:0.95rem; text-decoration:none; border:1px solid var(--stroke); color:var(--muted); transition: all .3s ease; }
+    .link.primary { background:linear-gradient(90deg,var(--brand),var(--brand2)); color:#fff; border:none; box-shadow:0 6px 18px rgba(93,214,255,.25); }
+    .link:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(93,214,255,.35); color:var(--brand2); }
+    .link.primary:hover { background:linear-gradient(90deg,var(--brand2),var(--brand)); color:#fff; }
+
+    /* PRICING */
+    .pricing-section {
+      margin-top:100px; padding:80px 20px;
+      border-radius:20px; border:1px solid var(--stroke);
+      background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent 60%);
+      box-shadow:0 10px 40px rgba(0,0,0,0.3); text-align:center;
+    }
+    .pricing-section h2 {
+      font-size:2rem; margin-bottom:10px;
+      background:linear-gradient(90deg,var(--brand),var(--brand2));
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+    }
+    .pricing-grid { display:grid; gap:28px; grid-template-columns:1fr; }
+    @media (min-width:860px) { .pricing-grid { grid-template-columns:repeat(2,1fr); } }
+    .price-card {
+      background:var(--panel); border:1px solid var(--stroke); border-radius:18px;
+      padding:40px 28px; box-shadow:0 8px 30px rgba(0,0,0,0.25); transition:all 0.4s ease; text-align:left;
+    }
+    .price-card:hover { transform:translateY(-6px); box-shadow:0 12px 40px rgba(93,214,255,0.25); }
+    .price-card h3 { font-size:1.4rem; margin-bottom:6px; color:var(--text); }
+    .price-tag { font-size:1.1rem; font-weight:600; color:var(--brand2); margin-bottom:18px; }
+    .desc { color:var(--muted); font-size:0.95rem; line-height:1.7; margin-bottom:18px; }
+    .pricing-cta{ margin-top: 2px; color: var(--muted); font-size: 0.98rem; }
+    .pricing-cta a{ color: var(--brand2); font-weight: 600; text-decoration: none; border-bottom: 1px dashed rgba(93,214,255,.4); }
+    .pricing-cta a:hover{ color:#fff; border-bottom-color: transparent; }
+
+    /* SURVEY EXPLAINER (premium) */
+    .survey-section{
+      margin-top:80px; padding:80px 24px; border-radius:20px; border:1px solid var(--stroke);
+      background:
+        radial-gradient(700px 400px at 20% -10%, rgba(124,92,255,.10), transparent 60%),
+        radial-gradient(700px 400px at 80% 110%, rgba(93,214,255,.12), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,.02), transparent 60%);
+      box-shadow:0 10px 40px rgba(0,0,0,.25);
+    }
+    .survey-header{ text-align:center; max-width:900px; margin:0 auto 26px; }
+    .survey-header h2{
+      font-size:2rem; margin:8px 0 8px;
+      background:linear-gradient(90deg,var(--brand),var(--brand2));
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+    }
+    .survey-header .lead{ color:var(--muted); line-height:1.8; }
+    .badge{
+      display:inline-block; font-size:.9rem; letter-spacing:.4px; padding:6px 12px; border-radius:999px; color:#fff;
+      background:linear-gradient(90deg,var(--brand),var(--brand2)); box-shadow:0 8px 24px rgba(93,214,255,.25);
+    }
+    .benefits-grid{ display:grid; gap:18px; margin-top:24px; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); }
+    .b-card{ border:1px solid var(--stroke); border-radius:14px; background:var(--card); padding:18px 16px; position:relative; overflow:hidden; transform:translateY(14px); opacity:0; transition:transform .6s ease, opacity .6s ease, box-shadow .3s ease; }
+    .b-card:hover{ box-shadow:0 14px 36px rgba(0,0,0,.35); transform:translateY(-2px); }
+    .b-card h3{ margin:6px 0 6px; font-size:1.05rem; }
+    .b-card p{ color:var(--muted); font-size:.98rem; line-height:1.7; }
+    .b-icon{
+      width:38px; height:38px; border-radius:10px; display:grid; place-items:center; font-size:20px;
+      background:linear-gradient(90deg,rgba(124,92,255,.25),rgba(93,214,255,.25));
+      border:1px solid var(--stroke); box-shadow:inset 0 0 0 1px rgba(255,255,255,.04);
+    }
+    .reveal.show .b-card{ opacity:1; transform:translateY(0); }
+    .reveal.show .b-card:nth-child(1){ transition-delay:.05s; }
+    .reveal.show .b-card:nth-child(2){ transition-delay:.12s; }
+    .reveal.show .b-card:nth-child(3){ transition-delay:.19s; }
+    .reveal.show .b-card:nth-child(4){ transition-delay:.26s; }
+
+    .survey-cta{ text-align:center; margin-top:30px; }
+    .survey-btn{
+      display:inline-flex; align-items:center; gap:10px; padding:14px 26px; border-radius:14px; font-weight:700; color:#fff; text-decoration:none;
+      background:linear-gradient(90deg,var(--brand),var(--brand2));
+      box-shadow:0 10px 28px rgba(93,214,255,.28); transition:transform .25s ease, box-shadow .25s ease, filter .25s ease; border:none;
+    }
+    .survey-btn:hover{ transform:translateY(-2px); box-shadow:0 14px 40px rgba(93,214,255,.35); filter:saturate(1.05); }
+    .pulse-dot{ width:8px; height:8px; border-radius:50%; background:#fff; opacity:.85; box-shadow:0 0 0 0 rgba(255,255,255,.6); animation:pulse 1.8s ease-out infinite; }
+    @keyframes pulse{ 0%{ box-shadow:0 0 0 0 rgba(255,255,255,.6) } 70%{ box-shadow:0 0 0 18px rgba(255,255,255,0) } 100%{ box-shadow:0 0 0 0 rgba(255,255,255,0) } }
+    .trust-note{ color:var(--muted); font-size:.92rem; margin-top:10px; }
+
+    /* CONTACT */
+    .contact-section {
+      padding:70px 20px; border-radius:20px; border:1px solid var(--stroke);
+      background:radial-gradient(900px 600px at 50% -10%,rgba(124,92,255,0.08),transparent 70%);
+      box-shadow:0 10px 40px rgba(0,0,0,0.25); text-align:center;
+    }
+    .contact-header h2 {
+      font-size:2rem;
+      background:linear-gradient(90deg,var(--brand),var(--brand2));
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+      margin-bottom:6px;
+    }
+    .contact-intro { color:var(--muted); margin-bottom:12px; }
+    .contact-lead { color:var(--muted); margin-bottom:30px; }
+    .send-btn {
+      border:none; padding:14px 22px; border-radius:14px; font-size:1rem;
+      font-weight:600; color:#fff; background:linear-gradient(90deg,var(--brand),var(--brand2));
+      box-shadow:0 8px 24px rgba(124,92,255,0.25); cursor:pointer; transition:all 0.3s ease;
+      text-decoration:none; display:inline-block;
+    }
+    .send-btn:hover { transform:translateY(-2px); box-shadow:0 10px 40px rgba(93,214,255,0.35); }
+
+    footer { margin:60px 0 20px; color:var(--muted); text-align:center; font-size:0.9rem; }
+
+    @media (max-width:600px) {
+      .main-header { height:50px; padding:6px 14px; }
+      .logo { font-size:1rem; }
+      .nav { gap:10px; font-size:0.8rem; }
+      .wrap { padding:70px 18px 40px; }
+    }
+    /* === ABSTRACT SHAPE BACKGROUND === */
+#bg-shapes {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -9999;
+  pointer-events: none;
+  opacity: 0.25; /* kicsit erősebb, de még visszafogott */
+  filter: blur(0.3px);
+  background: none;
+}
+
+
+html, body {
+  position: relative;
+  z-index: 0;
+  background: #0b0c10;
+}
+header, .wrap, section, footer {
+  position: relative;
+  z-index: 10; /* mindig a formák fölött */
+}
+
+.link.primary {
+  animation: pulseDemo 3s infinite ease-in-out;
+}
+@keyframes pulseDemo {
+  0%, 100% { box-shadow: 0 0 0 rgba(93,214,255,0.25); transform:scale(1); }
+  50% { box-shadow: 0 0 24px rgba(93,214,255,0.35); transform:scale(1.03); }
+}
+
+  </style>
+</head>
+
+<body>
+  <canvas id="bg-shapes"></canvas>
+  <header class="main-header">
+    <div class="header-inner">
+      <div class="logo">HM <span>– Media</span></div>
+      <nav class="nav">
+        <a href="#rolam">Rólam</a>
+        <a href="#projektek">Projektek</a>
+        <a href="#arak">Árak</a>
+        <a href="#kapcsolat">Kapcsolat</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <!-- HERO -->
+    <section class="hero hero-typo">
+      <div class="hero-inner">
+        <h1 class="hero-title"><span class="hm">HM</span><span class="media">– Media</span></h1>
+        <p class="hero-anim">Weboldalak, amik <span id="animated-word">eladnak.</span></p>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about-section" id="rolam">
+      <div class="about-text">
+        <h2>Rólam</h2>
+        <p class="lead">Szia, Máté vagyok — a <strong>HM – Media</strong> alapítója. Szenvedélyem a modern, gyors és letisztult weboldalak tervezése, amelyek nemcsak szépek, hanem <em>üzletileg is működnek</em>.</p>
+        <p>Több éves tapasztalatom van a <strong>front-end fejlesztésben</strong> és a <strong>kreatív arculattervezésben</strong>. Olyan weboldalakat építek, amelyek segítenek a márkáknak <em>kitűnni és eladni</em>.</p>
+        <div class="about-highlight">
+          <p><strong>Főbb területeim:</strong></p>
+          <ul>
+            <li>Modern, reszponzív weboldalak fejlesztése (HTML, CSS, JS)</li>
+            <li>Arculattervezés és márkaépítés</li>
+            <li>Online jelenlét optimalizálás, SEO és marketing alapok</li>
+          </ul>
+        </div>
+        <a class="about-btn" href="#kapcsolat">Lépj kapcsolatba velem</a>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="reveal" id="projektek">
+      <h2>Projektek</h2>
+      <p class="lead">Kattints az élő demóra vagy nézd meg a forráskódot GitHubon.</p>
+
+      <div class="grid">
+        <!-- Ügyvédi Iroda -->
+        <article class="card">
+          <div class="thumb">
+            <img src="assets/ugyvedsablon.png" alt="Ügyvédi Iroda – sablon előnézet">
+          </div>
+          <div class="content">
+            <h3 class="title">Ügyvédi Iroda – Sablon</h3>
+            <p class="lead">Bizalomra építő, letisztult arculat jogi szolgáltatásokhoz.</p>
+            <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Minimal design</span><span class="tag">JS</span></div>
+          </div>
+          <div class="links" style="justify-content:center;">
+            <a class="link primary" href="projects/hmmedia-ugyved-sablon.html" target="_blank" rel="noopener">
+              Élő demó
+            </a>
+          </div>
+        </article>
+
+        <!-- Építőipari -->
+        <article class="card">
+          <div class="thumb">
+            <img src="assets/epitoiparsablon.png" alt="Építőipari megoldások – sablon előnézet">
+          </div>
+          <div class="content">
+            <h3 class="title">Építőipari Megoldások – Sablon</h3>
+            <p class="lead">Erőteljes kontraszt, referenciák és szolgáltatások a fókuszban.</p>
+            <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Hero szekció</span><span class="tag">Scroll animáció</span></div>
+          </div>
+          <div class="links" style="justify-content:center;">
+            <a class="link primary" href="projects/hmmedia-epitoipari-sablon.html" target="_blank" rel="noopener">
+              Élő demó
+            </a>
+          </div>
+        </article>
+
+        <!-- Kreatív Stúdió -->
+        <article class="card">
+          <div class="thumb">
+            <img src="assets/studiosablon.png" alt="Kreatív stúdió – sablon előnézet">
+          </div>
+          <div class="content">
+            <h3 class="title">Kreatív Stúdió – Sablon</h3>
+            <p class="lead">Modern megjelenés, animációk és nagy vizuális tér branding ügynökségeknek.</p>
+            <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Motion design</span><span class="tag">Minimalista</span></div>
+          </div>
+          <div class="links" style="justify-content:center;">
+            <a class="link primary" href="projects/hmmedia-kreativstudio-sablon.html" target="_blank" rel="noopener">
+              Élő demó
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="pricing-section" id="arak">
+      <div class="pricing-inner">
+        <h2>Weboldal készítés & karbantartás</h2>
+        <p class="lead">Prémium weboldalak és folyamatos támogatás — hogy a digitális megjelenésed mindig a legjobb formáját hozza.</p>
+
+        <div class="pricing-grid">
+          <!-- Egyedi weboldal készítés -->
+          <div class="price-card">
+            <h3>Egyedi weboldal készítés</h3>
+            <p class="price-tag">Egyedi árajánlat alapján</p>
+            <p class="desc">Teljesen személyre szabott design és fejlesztés, modern technológiákkal. Tartalmazza a reszponzív megjelenést, alap SEO beállításokat és betanítást.</p>
+            <p class="pricing-cta">➡️ <a href="#kapcsolat">Vedd fel a kapcsolatot</a> és kapsz egy pontos, személyre szabott ajánlatot.</p>
+          </div>
+
+          <!-- Havi karbantartás -->
+          <div class="price-card">
+            <h3>Havi karbantartás</h3>
+            <p class="price-tag">15 000 Ft / hó-tól</p>
+            <p class="desc">Rendszeres frissítések, biztonsági mentések és kisebb módosítások. Gondoskodunk róla, hogy weboldalad mindig naprakész maradjon.</p>
+            <p class="pricing-cta">➡️ <a href="#kapcsolat">Vedd fel a kapcsolatot</a>, megbeszéljük az igényeidet és a legjobb csomagot.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SURVEY EXPLAINER -->
+    <section class="survey-section reveal" id="igenyfelmeres-info">
+      <div class="survey-header">
+        <span class="badge">Igényfelmérő</span>
+        <h2>Gyorsabb, pontosabb, személyre szabottabb ajánlat.</h2>
+        <p class="lead">
+          Az igényfelmérőben pár perc alatt megadod a célokat, funkciókat és a költségkeretet.
+          Így <strong>felesleges körök nélkül</strong> tudok <strong>pontos ajánlatot</strong> és reális határidőt adni.
+        </p>
+      </div>
+
+      <div class="benefits-grid">
+        <div class="b-card">
+          <div class="b-icon">🎯</div>
+          <h3>Világos célok</h3>
+          <p>Mit szeretnél elérni az oldallal? A brief alapján már az elején jó irányba indulunk.</p>
+        </div>
+        <div class="b-card">
+          <div class="b-icon">⚡</div>
+          <h3>Gyors ajánlat</h3>
+          <p>Kevesebb kérdezz–felelek, gyorsabb indulás. Az adatokból azonnal dolgozni tudok.</p>
+        </div>
+        <div class="b-card">
+          <div class="b-icon">🧭</div>
+          <h3>Reális ütemezés</h3>
+          <p>Átlátható határidők és mérföldkövek — mindenki tudja, mi a következő lépés.</p>
+        </div>
+        <div class="b-card">
+          <div class="b-icon">🔧</div>
+          <h3>Karbantartás opció</h3>
+          <p>Megbeszéljük, érdekel-e havi fenntartás: frissítések, mentések, apró módosítások.</p>
+        </div>
+      </div>
+
+      <div class="survey-cta">
+        <a href="igenyfelmeres.html" class="survey-btn">
+          📝 Töltsd ki az igényfelmérőt
+          <span class="pulse-dot" aria-hidden="true"></span>
+        </a>
+        <p class="trust-note">~3 perc • nincs kötelezettség • az adataid biztonságban vannak</p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact-section" id="kapcsolat">
+      <div class="contact-header">
+        <h2>Kapcsolat</h2>
+        <p class="contact-intro"><strong>HM – Media</strong><br>Modern webfejlesztés és arculattervezés</p>
+      </div>
+      <div class="contact-inner">
+        <p class="contact-lead">Dolgozzunk együtt. Emailben vagy telefonon elérsz — 24 órán belül válaszolok.</p>
+        <p style="margin-bottom:20px;">
+  <strong>Email:</strong>
+  <a
+    href="https://mail.google.com/mail/?view=cm&fs=1&to=mate.hliva@gmail.com&su=Kapcsolatfelvétel%20HM%20Media&body=Szia%20M%C3%A1t%C3%A9%2C%0A%0AAz%20oldaladr%C3%B3l%20%C3%ADrok%20%C3%A9s%20%C3%A9rdekl%C5%91dn%C3%A9k%20a%20weboldal%20k%C3%A9sz%C3%ADt%C3%A9s%20lehet%C5%91s%C3%A9geir%C5%91l.%0A%0A---%0AN%C3%A9v%3A%20%0AEmail%3A%20%0A%C3%9Czenet%3A%20%0A%0A%5B%20K%C3%A9rlek%20t%C3%B6ltsd%20ki%20a%20fentieket%20%5D"
+    target="_blank"
+    rel="noopener"
+    style="color:var(--brand2);"
+  >
+    mate.hliva@gmail.com
+  </a>
+  <br>
+  <strong>Telefon:</strong>
+  <a href="tel:+36208041533" style="color:var(--brand2);">
+    +36 20 804 1533
+  </a>
+</p>
+         <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-top:30px;">
+        <a 
+          href="https://mail.google.com/mail/?view=cm&fs=1&to=mate.hliva@gmail.com&su=Kapcsolatfelvétel%20HM%20Media&body=Szia%20M%C3%A1t%C3%A9%2C%0A%0AAz%20oldaladr%C3%B3l%20%C3%ADrok%20%C3%A9s%20%C3%A9rdekl%C5%91dn%C3%A9k%20a%20weboldal%20k%C3%A9sz%C3%ADt%C3%A9s%20lehet%C5%91s%C3%A9geir%C5%91l.%0A%0A---%0AN%C3%A9v%3A%20%0AEmail%3A%20%0A%C3%9Czenet%3A%20%0A%0A%5B%20K%C3%A9rlek%20t%C3%B6ltsd%20ki%20a%20fentieket%20%5D"
+          target="_blank"
+          rel="noopener"
+          class="send-btn">
+          💌 Email küldése
+        </a>
+        <a href="tel:+36208041533" class="send-btn" style="background:linear-gradient(90deg,var(--brand2),var(--brand));">📞 Telefonhívás</a>
+      </div>
+
+      </div>
+    </section>
+
+    <footer>
+  <p>© 2025 HM – Media • Készült tiszta, hozzáférhető HTML-lel.</p>
+  <div style="margin-top:12px; display:flex; justify-content:center; gap:18px;">
+    <a href="https://www.linkedin.com/in/matehliva/" target="_blank" rel="noopener" title="LinkedIn" style="color:var(--muted); font-size:1.4rem;">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="26" height="26">
+        <path d="M19 0h-14C2.2 0 0 2.2 0 5v14c0 2.8 2.2 5 5 5h14c2.8 0 5-2.2 5-5V5c0-2.8-2.2-5-5-5zM7 19H4V9h3v10zm-1.5-11.3C4.7 7.7 4 7 4 6s.7-1.7 1.5-1.7S7 5 7 6s-.7 1.7-1.5 1.7zM20 19h-3v-5.6c0-1.3-.5-2.2-1.7-2.2-.9 0-1.5.6-1.8 1.2-.1.2-.1.5-.1.8V19h-3s.1-8 0-10h3v1.5c.4-.6 1.2-1.5 3-1.5 2.1 0 3.6 1.3 3.6 4.1V19z"/>
+      </svg>
+    </a>
+    <a href="https://github.com/MateHl26" target="_blank" rel="noopener" title="GitHub" style="color:var(--muted); font-size:1.4rem;">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="26" height="26">
+        <path d="M12 .5C5.4.5 0 5.9 0 12.5c0 5.3 3.4 9.8 8.2 11.4.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.5-1.2-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1 1.6-.7 1.8-1 .1-.8.4-1.4.8-1.7-2.6-.3-5.3-1.3-5.3-5.7 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.5.1-3.1 0 0 .9-.3 3 1.1a10.3 10.3 0 0 1 5.5 0c2.1-1.4 3-1.1 3-1.1.6 1.6.2 2.8.1 3.1.7.8 1.1 1.8 1.1 3 0 4.4-2.7 5.4-5.3 5.7.4.3.8 1 .8 2v3c0 .3.2.7.8.6A12 12 0 0 0 24 12.5C24 5.9 18.6.5 12 .5z"/>
+      </svg>
+    </a>
+  </div>
+</footer>
+
+  </div>
+
+  <script>
+    // Hero szó animáció
+    const words = ["eladnak.", "megmaradnak.", "működnek."]; let index = 0;
+    const el = document.getElementById("animated-word");
+    setInterval(() => {
+      index = (index + 1) % words.length;
+      el.classList.remove("fade-in"); void el.offsetWidth;
+      el.textContent = words[index]; el.classList.add("fade-in");
+    }, 2500);
+
+    // Reveal animáció a .reveal szekciókhoz (pl. survey kártyák)
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); }});
+    }, {threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+    const canvas = document.getElementById("bg-shapes");
+    const ctx = canvas.getContext("2d");
+    let shapes = [];
+    let w, h;
+
+    function resize() {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+      shapes = [];
+      for (let i = 0; i < 14; i++) {
+      shapes.push({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      size: 60 + Math.random() * 120,
+      speed: 0.15 + Math.random() * 0.4,
+      opacity: 0.15 + Math.random() * 0.1,
+      angle: Math.random() * 360,
+      shape: Math.random() > 0.5 ? "circle" : "triangle",
+      color: Math.random() > 0.5 ? "rgba(124,92,255," : "rgba(93,214,255,"
+    });
+  }
+}
+window.addEventListener("resize", resize);
+resize();
+
+function draw() {
+  ctx.clearRect(0, 0, w, h);
+  shapes.forEach(s => {
+    ctx.save();
+    ctx.filter = "blur(0.5px)";
+    ctx.translate(s.x, s.y);
+    ctx.rotate((s.angle * Math.PI) / 180);
+    ctx.globalAlpha = s.opacity;
+    ctx.strokeStyle = s.color + "0.7)";
+    ctx.lineWidth = 1.1;
+    
+    if (s.shape === "circle") {
+      ctx.beginPath();
+      ctx.arc(0, 0, s.size / 2, 0, Math.PI * 2);
+      ctx.stroke();
+    } else {
+      ctx.beginPath();
+      const side = s.size * 0.8;
+      for (let i = 0; i < 3; i++) {
+        const x = Math.cos((i * 2 * Math.PI) / 3) * side;
+        const y = Math.sin((i * 2 * Math.PI) / 3) * side;
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      ctx.closePath();
+      ctx.stroke();
+    }
+    ctx.restore();
+
+    // mozgás
+    s.y -= s.speed;
+    s.angle += s.speed * 0.9;
+    if (s.y + s.size < 0) {
+      s.y = h + s.size;
+      s.x = Math.random() * w;
+    }
+  });
+  requestAnimationFrame(draw);
+}
+draw();
+  </script>
+
+</body>
+</html>
